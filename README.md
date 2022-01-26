@@ -16,7 +16,7 @@ The current implementation uses two ways of storing the users and their MQTT top
 ## Config file example:
 
 {
-    "Connstring": "host=<ip> port=5432 user=<username> password=<password> dbname=<dbname> sslmode=disable",
+    "Connstring": "host=(ip) port=5432 user=(usrname) password=(pasword) dbname=(dbame) sslmode=disable",
     "Port": "9090",
     "StorageTypeJSON": "json",
     "StorageFileName": "assets/users.json"
