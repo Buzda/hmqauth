@@ -13,6 +13,10 @@ The current implementation uses two ways of storing the users and their MQTT top
 * postgresQL
 * JSON file
 
+## Features:
+
+In addition to it being an authorisation software working with hmq broker, it can be tied to a simple front-end app so it works as a management portal for adding/editing/removing etc. users as well as topics.
+
 ## Config file example:
 
 {
