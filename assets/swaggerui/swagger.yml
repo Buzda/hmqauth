@@ -1,0 +1,516 @@
+openapi: 3.0.0 
+consumes:
+- application/json
+info:
+  title: hmqauth
+  description: hmq is a service that facilitates users management to hmq MQTT broker
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:9090
+produces:
+- application/json
+schemes:
+- http
+components:
+  schemas:
+    SuccessResult:
+      type: object
+      properties:
+        status:
+          type: string
+          description: ok if successful
+        message:
+          type: string
+paths:
+  /mqtt/login:
+    get:
+        tags: [login]
+        description: Perform Login
+        parameters:
+          - in: query
+            name: username
+            required: true
+            schema:
+              type: string
+              format: string
+          - in: query
+            name: password
+            required: true
+            schema:
+              type: string
+              format: string
+        responses:
+          200:
+            description: 'Success Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+    post:
+        tags: [login]
+        description: Login
+        requestBody:
+          description: Username and Password as a JSON object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    username:
+                      type: string
+                      example: "Admin"
+                    password:
+                      type: string
+                      example: "Admin"
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+  /mqtt/listusers?token=value:
+    get:
+        tags: [users]
+        description: Fetch the list of users
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+  /mqtt/getuser/{userID}?token=value:
+    get:
+        tags: [users]
+        description: Fetch a user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+  /mqtt/adduser?token=value:
+    post:
+        tags: [users]
+        description: Add user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        requestBody:
+          description: User object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    username:
+                      type: string
+                      example: "test"
+                    password:
+                      type: string
+                      example: "lkjdbslkdfmbksbd"
+                    admin:
+                      type: string
+                      example: false
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: string
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'  
+    get:
+        tags: [users]
+        description: Add user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: password
+          schema:
+            type: string
+        - in: query
+          name: admin
+          schema:
+            type: string 
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+  /mqtt/edituser?token=value:
+    post:
+        tags: [users]
+        description: Edit user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        requestBody:
+          description: User object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    username:
+                      type: string
+                      example: "test"
+                    password:
+                      type: string
+                      example: "lkjdbslkdfmbksbd"
+                    admin:
+                      type: string
+                      example: false
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: string
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'  
+    get:
+        tags: [users]
+        description: Edit user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: password
+          schema:
+            type: string
+        - in: query
+          name: admin
+          schema:
+            type: string 
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+  /mqtt/deleteuser/{userID}?token=value:
+    get:
+        tags: [users]
+        description: Delete user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+  /mqtt/addusertopic/{userID}?token=value:
+    post:
+        tags: [topics]
+        description: Add topic
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        requestBody:
+          description: Topic object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    topicstring:
+                      type: string
+                      example: "v"
+                    pub:
+                      type: string
+                      example: true
+                    sub:
+                      type: string
+                      example: false
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+    get:
+        tags: [topics]
+        description: Add topic
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        - in: query
+          name: topicstring
+          schema:
+            type: string
+        - in: query
+          name: pub
+          schema:
+            type: string
+        - in: query
+          name: sub
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+  /mqtt/editusertopic/{userID}?token=value:
+    post:
+        tags: [topics]
+        description: Edit topic
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        requestBody:
+          description: Topic object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    topicstring:
+                      type: string
+                      example: "v"
+                    pub:
+                      type: string
+                      example: true
+                    sub:
+                      type: string
+                      example: false
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+    get:
+        tags: [topics]
+        description: Edit topic
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        - in: query
+          name: topicstring
+          schema:
+            type: string
+        - in: query
+          name: pub
+          schema:
+            type: string
+        - in: query
+          name: sub
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+  /mqtt/deletetopic?token=value&username=value&topic=value:
+    get:
+        tags: [topics]
+        description: Delete user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: topic
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+  /mqtt/topics/{userID}?token=value:
+    get:
+        tags: [topics]
+        description: List topics for a user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: path
+          name: userID
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+  /mqtt/checkTopicAuth?token=value:
+    post:
+        tags: [topics]
+        description: Check authorisation for a specific topic for a user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        requestBody:
+          description: Topic object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    topic:
+                      type: string
+                      example: "v"
+                    username:
+                      type: string
+                      example: "v"
+                    access:
+                      type: string
+                      example: "sub"
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'
+    get:
+        tags: [topics]
+        description: Check authorisation for a specific topic for a user
+        parameters:
+        - in: query
+          name: token
+          schema:
+            type: string
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: topic
+          schema:
+            type: string
+        - in: query
+          name: access
+          schema:
+            type: string
+        responses:
+          200:
+            description: 'Sussess Response'
+            schema:
+              type: object
+          400:
+            description: Bad Request
+          401:
+            description: 'Unauthorised action'
+          404:
+            description: 'Item not found'

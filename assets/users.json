@@ -1,0 +1,156 @@
+[
+  {
+   "username": "Admin",
+   "password": "$2a$10$/bNzibN56gX1/WuQvQyGs.9Ma/8l6zTM8aEryxl3VAaC200mtBREa",
+   "admin": true,
+   "createTS": "",
+   "updateTS": "",
+   "token": "c7ohvtir4qibd80dmf10",
+   "topics": [
+    {
+     "topicstring": "#",
+     "pub": true,
+     "sub": true
+    },
+    {
+     "topicstring": "v",
+     "pub": true,
+     "sub": true
+    },
+    {
+     "topicstring": "r",
+     "pub": true,
+     "sub": false
+    },
+    {
+     "topicstring": "f",
+     "pub": false,
+     "sub": true
+    },
+    {
+     "topicstring": "k",
+     "pub": true,
+     "sub": false
+    }
+   ]
+  },
+  {
+   "username": "Lights",
+   "password": "$2a$10$9M4ZdJQLX8qK6OmA40VSouoXCsJKYzYnyqElmo9u4atl3xCbCfnpO",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "c5es7fgji640h156h610",
+   "topics": [
+    {
+     "topicstring": "lights/#",
+     "pub": true,
+     "sub": true
+    },
+    {
+     "topicstring": "alerts/lights/#",
+     "pub": false,
+     "sub": true
+    }
+   ]
+  },
+  {
+   "username": "Gaz",
+   "password": "$2a$10$9M4ZdJQLX8qK6OmA40VSouoXCsJKYzYnyqElmo9u4atl3xCbCfnpO",
+   "admin": true,
+   "createTS": "",
+   "updateTS": "",
+   "token": "c5pacc8ji647ia0iar50",
+   "topics": [
+    {
+     "topicstring": "shrews/sizes",
+     "pub": true,
+     "sub": true
+    }
+   ]
+  },
+  {
+   "username": "Chloe",
+   "password": "$2a$10$8DwyBbvdSJ7lXxJE3mywneIS3hcYhG5up/V5cSJOCrk19IPQ8tjs.",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "",
+   "topics": null
+  },
+  {
+   "username": "buzda",
+   "password": "$2a$10$w.Nqwd/oZiuwx/SieRVyvu5qBnMaegcC3XLBHrG0pZ1.LNkAM9cY2",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "",
+   "topics": [
+    {
+     "topicstring": "buzzzzzzz",
+     "pub": true,
+     "sub": false
+    },
+    {
+     "topicstring": "lol",
+     "pub": true,
+     "sub": true
+    }
+   ]
+  },
+  {
+   "username": "buzi",
+   "password": "$2a$10$w7IxOYeDtgyh0Klc9MCLbuGQUDLVEJgv7KJ/yDdTJK7g3VOIt.KPC",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "c78m2nqr4qi7424lq190",
+   "topics": [
+    {
+     "topicstring": "go",
+     "pub": true,
+     "sub": false
+    },
+    {
+     "topicstring": "me",
+     "pub": false,
+     "sub": true
+    }
+   ]
+  },
+  {
+   "username": "ahmed",
+   "password": "$2a$10$p7slrlakK.33NhRpFOCLSeYry1l2WQw5SSz57V1av.Q6NjPgm2tPG",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "c7e2tqar4qi8bg62hnl0",
+   "topics": [
+    {
+     "topicstring": "me",
+     "pub": true,
+     "sub": true
+    }
+   ]
+  },
+  {
+   "username": "a",
+   "password": "$2a$10$9Uimssa167UkGPa8Bna8C.ec16JNH4Cv/Af6KWRFG29VCEqvGmrTG",
+   "admin": false,
+   "createTS": "",
+   "updateTS": "",
+   "token": "",
+   "topics": [
+    {
+     "topicstring": "a/a",
+     "pub": true,
+     "sub": false
+    },
+    {
+     "topicstring": "a/#",
+     "pub": false,
+     "sub": true
+    }
+   ]
+  }
+ ]
