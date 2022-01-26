@@ -12,3 +12,12 @@ The current implementation uses two ways of storing the users and their MQTT top
 
 * postgresQL
 * JSON file
+
+## Config file example:
+
+{
+    "Connstring": "host=<ip> port=5432 user=<username> password=<password> dbname=<dbname> sslmode=disable",
+    "Port": "9090",
+    "StorageTypeJSON": "json",
+    "StorageFileName": "assets/users.json"
+}
